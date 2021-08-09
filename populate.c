@@ -23,22 +23,17 @@ struct node *  populate(int population, ...){
 
     root_entity = new_node(first_name, last_name, counter++);
 
-    printf("Set root\n");
 
-    //while(first_name != NULL && last_name != NULL){
     while(counter < population){  
         first_name = va_arg(ap, char *);
         last_name = va_arg(ap, char *);
 
-        insert(root_entity, new_node(first_name, last_name, counter));
+        struct node * temp = new_node(first_name, last_name, counter);
+        insert(root_entity, temp);
 
-        printf("inserted new node\n");
         ++counter;
     }
     va_end(ap);
 
-    if(counter != population - 1){
-        return NULL;
-    }
     return root_entity; 
 }

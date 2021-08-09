@@ -43,7 +43,9 @@ struct node * new_node(char * first_name, char * last_name, int id)
     p -> data -> system_id = id;
     p -> left_child = NULL;
     p -> right_child = NULL;
-
+    
+   // printf("%s\n", p -> data -> first_name);
+   // printf("%s\n", p -> data -> last_name);
     return p;
 }
 
@@ -51,7 +53,7 @@ struct node * insert(struct node * root, struct node * node)
 {
     //searching for the place to insert
     if(root == NULL)
-        return new_node(NULL, NULL, -1);
+        return new_node(node -> data -> first_name, node -> data -> last_name, node -> data -> system_id);
     else if(node -> data -> system_id > root -> data -> system_id) // x is greater. Should be inserted to right
         root -> right_child = insert(root -> right_child, node);
     else // x is smaller should be inserted to left

@@ -12,7 +12,8 @@ void inorder(struct node * root)
         printf(" Last name:  %s \n", root -> data -> last_name);
         printf(" Age:        %d \n", root -> data -> age);
         printf(" Gender:     %s \n", root -> data -> gender);
-        printf(" ID:         %ld ", root -> data -> system_id); // printing data at root
+        printf(" ID:         %ld \n", root -> data -> system_id); // printing data at root
+        printf("\n");
         inorder(root->right_child);// visiting right child
     }
 }
