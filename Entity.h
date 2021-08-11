@@ -75,9 +75,10 @@ typedef struct {
 struct node * populate(int, ...);
 struct node * search(struct node *, int);
 struct node * find_minimum(struct node *);
-struct node * new_node(char *, char *, int);
+struct node * new_node(char *, char *, int, char *, int);
 struct node * insert(struct node *, struct node *);
 struct node * delete_node(struct node *, int);
-void inorder(struct node *);
+FILE * setup_document(char*);
+void inorder(struct node *, FILE *);
 
 #endif

@@ -11,24 +11,30 @@ struct node *  populate(int population, ...){
 
     char* first_name;
     char* last_name;
+    int age;
+    char* gender;
 
     va_start(ap, population);
 
     first_name = va_arg(ap, char *); 
     last_name = va_arg(ap, char *);
+    age = va_arg(ap, int);
+    gender = va_arg(ap, char *);
 
     if(first_name == NULL || last_name == NULL){
         return NULL; 
     }
 
-    root_entity = new_node(first_name, last_name, counter++);
+    root_entity = new_node(first_name, last_name, age, gender, counter++);
 
 
     while(counter < population){  
         first_name = va_arg(ap, char *);
         last_name = va_arg(ap, char *);
+        age = va_arg(ap, int);
+        gender = va_arg(ap, char *);
 
-        struct node * temp = new_node(first_name, last_name, counter);
+        struct node * temp = new_node(first_name, last_name, age, gender, counter);
         insert(root_entity, temp);
 
         ++counter;
